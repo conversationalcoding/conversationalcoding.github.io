@@ -93,7 +93,29 @@
 
 <p>The output of the calculations you do in an Excel spreadsheet, for example, cannot easily be entered into a form in a website, for example - you have to copy and paste the values from each cell into the address bar of your browser, which can be a painfully repetitive and error-prone process. In this lesson, we will learn how to simplify this type of task.</p>
 
-<p><a href="/beginners-series/unix/2014/11/03/using-the-command-line/">The previous lesson introduced us to the shell</a>.</p>
+<p><a href="/beginners-series/unix/2014/11/03/using-the-command-line/">The previous lesson introduced us to the shell</a>. In the shell command line, you learned how to get the output of various commands, with the corresponding options and arguments.</p>
+
+<p>Each command is like a box that takes in some inputs and responds by putting out outputs. In the previous lesson, the inputs were provided as command-line arguments and the outputs always goes to the screen. But it’s possible to change both these so that inputs and outputs flow from and to other sources.</p>
+
+<h1 id="redirecting-to-a-file">Redirecting To A File</h1>
+
+<p>Let’s start by figuring out how to put the output somewhere other than the screen. You can have the output sent to a file by using the redirection operator - <code>&gt;</code> - this saves the listing of files in the file <code>list_of_files.txt</code></p>
+
+<pre><code>ls &gt; list_of_files.txt
+</code></pre>
+
+<p>If you now look at the content of the file <code>list_of_files.txt</code>, you will see all the files in the
+folder you listed. Note that <code>list_of_files.txt</code> is created in the same folder where you listed the
+files - this is your current working directory and that’s the one used by the shell to store any
+file to which output is redirected. Note also that the filenames don’t contain the current working
+directory - so the information about the current working directory is now lost if you look at just
+the content of <code>list_of_files.txt</code></p>
+
+<p>Note also that the file <code>list_of_files.txt</code> contains its own name! This means that the shell created the file <em>before</em> it listed the contents of the folder. How can you modify the <code>ls</code> command to prove that this is the sequence of events? That is, how do we know that <code>list_of_files.txt</code> was created first before the listing itself was generated, rather than the listing being generated after it had already been stored in that file?</p>
+
+<h1 id="understanding-pipes">Understanding Pipes</h1>
+
+<p>To understand how to use input from a source other than the command line arguments, we first need to learn a command that takes keyboard input. The shell command we will use for this purpose </p>
 
 </div>
 
